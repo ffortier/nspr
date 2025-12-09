@@ -1,0 +1,16 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+
+cc_library(
+    name = "nspr4",
+    hdrs = ["//pr/include"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pr/src",
+    ],
+)
+
+alias(
+    name = "pr",
+    actual = ":nspr4",
+    visibility = ["//visibility:public"],
+)

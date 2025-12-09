@@ -1,0 +1,11 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "memory",
+    srcs = [
+        "prseg.c",
+        "prshm.c",
+        "prshma.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+)

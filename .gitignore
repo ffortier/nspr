@@ -1,0 +1,15 @@
+bazel-*
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.log
+*.dylib
+Makefile
+config/
+config.log
+config.status
+dist/
+_*_bld.h
+unallmakefiles

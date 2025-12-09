@@ -1,0 +1,11 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "threads",
+    srcs = [
+        "prcmon.c",
+        "prrwlock.c",
+        "prtpd.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+)

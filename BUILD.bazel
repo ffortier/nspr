@@ -1,0 +1,24 @@
+load("@rules_cc//cc:cc_shared_library.bzl", "cc_shared_library")
+
+cc_shared_library(
+    name = "nspr4",
+    user_link_flags = ["-Wl,-soname,libnspr4.so"],
+    visibility = ["//visibility:public"],
+    deps = ["//pr"],
+)
+
+cc_shared_library(
+    name = "plds4",
+    dynamic_deps = [":nspr4"],
+    user_link_flags = ["-Wl,-soname,libplds4.so"],
+    visibility = ["//visibility:public"],
+    deps = ["//lib/ds"],
+)
+
+cc_shared_library(
+    name = "plc4",
+    dynamic_deps = [":nspr4"],
+    user_link_flags = ["-Wl,-soname,libplc4.so"],
+    visibility = ["//visibility:public"],
+    deps = ["//lib/libc"],
+)

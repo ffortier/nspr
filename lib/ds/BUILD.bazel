@@ -1,0 +1,36 @@
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+write_file(
+    name = "_pl_bld",
+    out = "_pl_bld.h",
+    content = [
+        '#define _BUILD_STRING ""',
+        "#define _BUILD_TIME 0LL",
+        '#define _PRODUCTION "libplds4"',
+    ],
+)
+
+cc_library(
+    name = "plds4",
+    srcs = [
+        "plarena.c",
+        "plhash.c",
+        "plvrsion.c",
+        ":_pl_bld",
+    ],
+    hdrs = [
+        "plarena.h",
+        "plarenas.h",
+        "plhash.h",
+    ],
+    includes = ["."],
+    visibility = ["//visibility:public"],
+    deps = ["//pr"],
+)
+
+alias(
+    name = "ds",
+    actual = ":plds4",
+    visibility = ["//visibility:public"],
+)

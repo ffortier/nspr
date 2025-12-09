@@ -1,0 +1,28 @@
+load("@//pr:config.bzl", "cc_library")
+
+config_setting(
+    name = "linux_x86_64",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+)
+
+cc_library(
+    name = "unix",
+    srcs = [
+        "linux.c",
+        "unix.c",
+        "unix_errors.c",
+        "uxproces.c",
+        "uxrng.c",
+        "uxshm.c",
+        "uxwrap.c",
+    ] + select({
+        ":linux_x86_64": [
+            "os_Linux_x86_64.s",
+        ],
+        "//conditions:default": [],
+    }),
+    visibility = ["//pr:__subpackages__"],
+)

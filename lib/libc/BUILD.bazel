@@ -1,0 +1,29 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "plc4",
+    srcs = [
+        "src/base64.c",
+        "src/plerror.c",
+        "src/plgetopt.c",
+        "src/strcase.c",
+        "src/strcat.c",
+        "src/strchr.c",
+        "src/strcmp.c",
+        "src/strcpy.c",
+        "src/strdup.c",
+        "src/strlen.c",
+        "src/strpbrk.c",
+        "src/strstr.c",
+        "src/strtok.c",
+    ],
+    hdrs = glob(["include/*.h"]),
+    includes = ["include"],
+    deps = ["//pr"],
+)
+
+alias(
+    name = "libc",
+    actual = ":plc4",
+    visibility = ["//visibility:public"],
+)

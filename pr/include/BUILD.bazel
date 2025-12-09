@@ -1,0 +1,17 @@
+load("@bazel_skylib//rules:copy_file.bzl", "copy_file")
+
+filegroup(
+    name = "include",
+    srcs = [":prcpucfg"] + glob(["**/*.h"]),
+    visibility = ["//pr:__subpackages__"],
+)
+
+copy_file(
+    name = "prcpucfg",
+    src = select({
+        "@platforms//os:linux": "md/_linux.cfg",
+        "@platforms//os:windows": "md/_winnt.cfg",
+        "//conditions:default": "md/_darwin.cfg",
+    }),
+    out = "prcpucfg.h",
+)

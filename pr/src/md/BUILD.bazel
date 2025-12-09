@@ -1,0 +1,12 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "md",
+    srcs = [
+        "prosdep.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+    deps = [
+        "//pr/src/md/unix",
+    ],
+)

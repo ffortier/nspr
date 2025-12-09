@@ -1,0 +1,9 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "linking",
+    srcs = [
+        "prlink.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+)

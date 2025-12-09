@@ -1,0 +1,32 @@
+load("@//pr:config.bzl", "cc_library")
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
+
+write_file(
+    name = "_pr_bld",
+    out = "_pr_bld.h",
+    content = [
+        '#define _BUILD_STRING ""',
+        "#define _BUILD_TIME 0LL",
+        '#define _PRODUCTION "libnspr4"',
+    ],
+)
+
+cc_library(
+    name = "src",
+    srcs = [
+        "prvrsion.c",
+        ":_pr_bld",
+    ],
+    includes = ["."],
+    visibility = ["//pr:__subpackages__"],
+    deps = [
+        "//pr/src/io",
+        "//pr/src/linking",
+        "//pr/src/malloc",
+        "//pr/src/md",
+        "//pr/src/memory",
+        "//pr/src/misc",
+        "//pr/src/pthreads",
+        "//pr/src/threads",
+    ],
+)

@@ -1,0 +1,30 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "misc",
+    srcs = [
+        "pralarm.c",
+        "pratom.c",
+        "praton.c",
+        "prcountr.c",
+        "prdtoa.c",
+        "prenv.c",
+        "prerr.c",
+        "prerror.c",
+        "prerrortable.c",
+        "prinit.c",
+        "prinrval.c",
+        "pripc.c",
+        "prlog2.c",
+        "prlong.c",
+        "prnetdb.c",
+        "prolock.c",
+        "prrng.c",
+        "prsystem.c",
+        "prthinfo.c",
+        "prtime.c",
+        "prtpool.c",
+        "prtrace.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+)

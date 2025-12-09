@@ -1,0 +1,10 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "malloc",
+    srcs = [
+        "prmalloc.c",
+        "prmem.c",
+    ],
+    visibility = ["//pr:__subpackages__"],
+)

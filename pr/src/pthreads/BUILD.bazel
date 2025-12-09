@@ -1,0 +1,13 @@
+load("@//pr:config.bzl", "cc_library")
+
+cc_library(
+    name = "pthreads",
+    srcs = [
+        "ptio.c",
+        "ptmisc.c",
+        "ptsynch.c",
+        "ptthread.c",
+    ],
+    linkopts = ["-lpthread"],
+    visibility = ["//pr:__subpackages__"],
+)
