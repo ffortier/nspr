@@ -19,14 +19,4 @@ cc_library(
     ],
     includes = ["."],
     visibility = ["//pr:__subpackages__"],
-    deps = [
-        "//pr/src/io",
-        "//pr/src/linking",
-        "//pr/src/malloc",
-        "//pr/src/md",
-        "//pr/src/memory",
-        "//pr/src/misc",
-        "//pr/src/pthreads",
-        "//pr/src/threads",
-    ],
 )

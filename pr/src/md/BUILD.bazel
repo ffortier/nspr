@@ -6,7 +6,4 @@ cc_library(
         "prosdep.c",
     ],
     visibility = ["//pr:__subpackages__"],
-    deps = [
-        "//pr/src/md/unix",
-    ],
 )

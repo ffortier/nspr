@@ -3,6 +3,18 @@ load("@rules_cc//cc:cc_library.bzl", "cc_library")
 cc_library(
     name = "nspr4",
     hdrs = ["//pr/include"],
+    implementation_deps = [
+        "//pr/src",
+        "//pr/src/io",
+        "//pr/src/linking",
+        "//pr/src/malloc",
+        "//pr/src/md",
+        "//pr/src/md/unix",
+        "//pr/src/memory",
+        "//pr/src/misc",
+        "//pr/src/pthreads",
+        "//pr/src/threads",
+    ],
     visibility = ["//visibility:public"],
     deps = [
         "//pr/src",
